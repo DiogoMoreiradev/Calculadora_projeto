@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculator</title>
+</head>
+    <body>
+        <div class="container">
+        <table class="NumbersContainer">
+            <p id="result"></p>
+            <tr>
+                <td><button id="C" onclick="RemoveAll()">C</button></td>
+                <td><button id="del" onclick="DeleteNum()">D</button></td>
+                <td><button  class="operation" id="divide"  onclick="insert('/')">/</button></td>
+            <td><button  class="operation" id="mutiply"  onclick="insert('*')">X</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="insert('7')">7</button></td>
+                <td><button onclick="insert('8')">8</button></td>
+                <td><button onclick="insert('9')">9</button></td>
+                <td><button  class="operation"  onclick="insert('-')" id="sub">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="insert('4')">4</button></td>
+                <td><button onclick="insert('5')">5</button></td>
+                <td><button onclick="insert('6')">6</button></td>
+                <td><button  class="operation" onclick="insert('+')"id="sum">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="insert('1')">1</button></td>
+                <td><button onclick="insert('2')">2</button></td>
+                <td><button onclick="insert('3')">3</button></td>
+                <td   rowspan="2"><button onclick="calc()"id="equal" >=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="zero" onclick="insert('0')" >0</button></td>
+                <td><button onclick="insert('.')">.</button></td>
+            </tr>
+        </table>
+        
+</div>
+<script>
+    
+    
+    function insert(n) {
+        
+       
+        var numero = document.getElementById('result').innerHTML
+        document.getElementById('result').innerHTML = n + numero
+    }
+    const RemoveAll = () => { // deixar vázio
+        document.getElementById('result').innerHTML = ""
+    }
+    const DeleteNum = () => { // remover apenas o último elemento
+     var resultado = document.getElementById('result').innerHTML
+     document.getElementById('result').innerHTML = resultado.slice(0, resultado.length -1)
+    }  
+    const calc = () => {
+        var CalcResult = document.getElementById('result').innerHTML
+        document.getElementById('result').innerHTML = eval(CalcResult)
+    }
+
+    
+   
+
+
+
+</script>
+
+</body>
+</html>
